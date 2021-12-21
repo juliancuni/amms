@@ -10,8 +10,20 @@ import 'package:amms/views/screens/user_profile.screen.dart';
 import 'package:amms/views/screens/users.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-void main() {
+Future<void> main() async {
+  const appId = "";
+  const clientKey = "";
+  const serverUrl = "";
+
+  await Parse().initialize(
+    appId,
+    serverUrl,
+    clientKey: clientKey,
+    autoSendSessionId: true,
+  );
+
   runApp(const AmmsApp());
 }
 
@@ -39,13 +51,37 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: TextButton(
-          onPressed: () {
-            Get.toNamed("/register");
-          },
-          child: const Text("Register"),
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            children: [
+              TextButton(
+                onPressed: () {
+                  Get.toNamed("/register");
+                },
+                child: const Text("Register"),
+              ),
+              TextButton(
+                onPressed: () {
+                  Get.snackbar("Info", "Snackbar me the te thashe");
+                },
+                child: const Text("Snack"),
+              ),
+              TextButton(
+                onPressed: () {
+                  Get.defaultDialog(
+                    title: "Info",
+                    content: const Text("Snackbar me the te thashe"),
+                    textCancel: "Cancel",
+                    textConfirm: "Ok",
+                  );
+                },
+                child: const Text("Dialog"),
+              ),
+            ],
+          ),
         ),
       ),
     );
