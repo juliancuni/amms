@@ -1,3 +1,4 @@
+import 'package:amms/helpers/environment.vars.dart';
 import 'package:amms/views/pages/login.page.dart';
 import 'package:amms/views/pages/register.page.dart';
 import 'package:amms/views/pages/role.page.dart';
@@ -9,18 +10,17 @@ import 'package:amms/views/screens/role.screen.dart';
 import 'package:amms/views/screens/user_profile.screen.dart';
 import 'package:amms/views/screens/users.screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 Future<void> main() async {
-  const appId = "";
-  const clientKey = "";
-  const serverUrl = "";
+  await dotenv.load(fileName: EnVars.filename);
 
   await Parse().initialize(
-    appId,
-    serverUrl,
-    clientKey: clientKey,
+    EnVars.appId,
+    EnVars.apiUrl,
+    clientKey: EnVars.clientKey,
     autoSendSessionId: true,
   );
 
@@ -57,6 +57,9 @@ class HomePage extends StatelessWidget {
         body: Center(
           child: Column(
             children: [
+              Text(
+                EnVars.apiUrl,
+              ),
               TextButton(
                 onPressed: () {
                   Get.toNamed("/register");
