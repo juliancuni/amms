@@ -1,12 +1,11 @@
 import 'package:amms/bindings/role.bindings.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RolePage extends GetPage {
-  RolePage()
+  RolePage({required GetView view})
       : super(
           name: '/role',
           binding: RoleBindings(),
-          page: () => Container(),
+          page: () => view,
         );
 }

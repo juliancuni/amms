@@ -1,21 +1,20 @@
 import 'package:amms/contracts/service.dart';
-import 'package:amms/models/user.dart';
 
-class UserService extends Service<User> {
+class AuthService extends Service {
   @override
-  Future<User?> create({required Map<String, dynamic> data}) {
+  Future create({required Map<String, dynamic> data}) {
     // TODO: implement create
     throw UnimplementedError();
   }
 
   @override
-  Future<List<User>?> find() {
+  Future<List?> find() {
     // TODO: implement find
     throw UnimplementedError();
   }
 
   @override
-  Future<User?> findOne({required String id}) {
+  Future findOne({required String id}) {
     // TODO: implement findOne
     throw UnimplementedError();
   }
@@ -27,7 +26,7 @@ class UserService extends Service<User> {
   }
 
   @override
-  Future<User?> update({required User model}) {
+  Future update({required model}) {
     // TODO: implement update
     throw UnimplementedError();
   }
