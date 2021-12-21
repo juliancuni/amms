@@ -7,7 +7,13 @@ class RegisterScreen extends GetView<AuthController> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      body: Center(
+        child: TextButton(
+          onPressed: () {},
+          child: const Text("ToHome"),
+        ),
+      ),
+    );
   }
 }
