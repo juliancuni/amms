@@ -16,6 +16,6 @@ class EnVars {
   }
 
   static String get clientKey {
-    return dotenv.env['PARSE_CLIENKEY'] ?? 'PARSE_CLIENKEY not found';
+    return dotenv.env['PARSE_CLIENTKEY'] ?? 'PARSE_CLIENTKEY not found';
   }
 }
